@@ -1,0 +1,21 @@
+{
+  "name": "face-recognition",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "dependencies": {
+    "@google-cloud/storage": "^3.1.0",
+    "facenet": "^0.10.3",
+    "flash-store": "^0.16.5",
+    "mysql": "^2.17.1",
+    "numjs": "^0.16.0",
+    "tempfile": "^3.0.0"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
+}
