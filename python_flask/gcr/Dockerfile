@@ -11,6 +11,8 @@ RUN apt-get install -y --fix-missing \
 
 # Copy local code to the container image.
 ENV APP_HOME /app
+ENV GOOGLE_APPLICATION_CREDENTIALS $APP_HOME/JurisnovaMX-81533c07499d.json
+ENV INSTANCE_CONNECTION_NAME jurisnovamx:us-central1:jurisnova
 WORKDIR $APP_HOME
 COPY . .
 
