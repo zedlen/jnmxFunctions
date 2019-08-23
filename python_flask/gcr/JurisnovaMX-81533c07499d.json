@@ -1,0 +1,12 @@
+{
+  "type": "service_account",
+  "project_id": "jurisnovamx",
+  "private_key_id": "81533c07499da5809d85e3a9b9a6e039d8f99210",
+  "private_key": "-----BEGIN PRIVATE KEY-----\nMIIEvgIBADANBgkqhkiG9w0BAQEFAASCBKgwggSkAgEAAoIBAQCbVZyk/Cu+qNJm\nOLr5TJIiwe/gjL5whO0YYcMN6hjg5PaOuW8WYKSKmiMgwuQ/roGyDJmzrNsz0mQU\npM05AcAYGa6cJthxJSgRWRAHFajDu+EQkHaLTmICf1jtkOtgnSNStE9zR+x6nKtp\naJXgbMi8B3nU9cDquT8NX9+AXPxSMsaCA2csYzk7zREunty7wJD8Eb71xThloyCP\nJdMWgK3q2lVBQ125H7VJJbRJtqccNQuNhNyFwLRqbcekwTMsls31P3+lswyaVAMC\nrUpMl885pCNljqjCeI1djQ0xXPS8cZWa3BEdYWcIeKMHi+U98n2K0Ua5rPh496pV\nqYJalR+XAgMBAAECggEAFkYU8617Qlgn72OEIBpkPBquIHdeGXleHChslVKzpY//\ncODTNpS+E2fd0KVRoHYP/+2BnruTJR+unS0yhlGjb3FDUf3Z/IN09uPcAgAPlp2a\nvMrSTNB9ClmjcVFeBxkRRxs251Nxa/WKOM+36hn/QMMbq7dfpejRS0QrotbykYCg\nGp4EbTWecaB709+dKl5+ij/AD83alFriL5kA8+IhxvOV6zIaE7p033cjrAHyN1cw\nU9ZNzSqx6cXmsqQ+zR0Id517MEN713UGmyYkEjFzRI03+wDUr1Mik7iuis+JPccF\nQh7jtKAtPlSJU5lYH5dNLYXu1FMf+Aj3ib7UMMUxaQKBgQDUp7zfLxExPnKSFdG7\nSYWBvhoJCWBgLuLwLCfg77IUgfxn8ATQ2OxWljqSCUmsCAwZ49N+rHT3Hy6rq+Vr\n17e/VVejwnb3j14XUCW8DZCUAHP06OV3gXgTm0MhRP8RUa1vDeaLEnWnjGTaE2C8\nmML9jacuKyTHr1dADDlHj0DdSQKBgQC6/uXrNbHuE5WZAdojJjWkGG9RlCJrfPrT\nI+jcGlQF0GayCFwWBtPw4LX0fvRyExKn8n3Ze/QklIRbf2Qi7ygoLESQ/qJ+Mh+j\nlb4LvNrsqNLIsZ+EQP4+mEMTqyYjPB87Ga78rZTyeuzvQ9TByK7YfK2KBfkAm2Zg\nKTOzhmJ13wKBgQCn2P2q62uWgsPLqo0wVoeaMII8P7piMJ/PEgsn8AmPRkoDf99N\nOOrSLSFtwwbzUia7CKgWg+iOZX5g4fzjchEGZEYYa5WbMP4DSK+ADvTe3Lypwmnc\nOcSdNR93Uw5AjUdnMIGXo6pZ5OZ1enYQZkMB/pzGRCdztWIYm41afiekgQKBgQCc\n/wssOk2j0/+CkeKCJj9dAULc3CE1251/DaQgv14R75F5IbmmqJ7imtdJahlzeP3t\n0ZLFuOMWnzas1zzMc7xkVh5PGep1R0H3Bu6jTjEEBw3JgA+sayDKju2qIsSHSp/x\n77NR466tEnXAwFNtSz849RyCSFdxogcG7zDAJjCeQwKBgAWUidsYM4+AxJBQ+DWS\nCmHtMpVDujWDVF3gwP9fwQC9bmp3L5CtOar0m2ev6Tx4Y0wlXbyf3TPBHjzr5IEQ\n4pRotZyOtJPzaUkiyM2D1yWrW59i14XAARnmltVNUwVTCNZ1Iw+5Y+l+udSeUnLx\nnpxj2C1gAU53Vd52cTRMrtFi\n-----END PRIVATE KEY-----\n",
+  "client_email": "adminjurisnova@jurisnovamx.iam.gserviceaccount.com",
+  "client_id": "108870576041161945785",
+  "auth_uri": "https://accounts.google.com/o/oauth2/auth",
+  "token_uri": "https://oauth2.googleapis.com/token",
+  "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
+  "client_x509_cert_url": "https://www.googleapis.com/robot/v1/metadata/x509/adminjurisnova%40jurisnovamx.iam.gserviceaccount.com"
+}
