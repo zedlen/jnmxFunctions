@@ -1,5 +1,6 @@
 from flask import Flask, jsonify, make_response
 from os import getenv
+import os
 import pymysql
 from pymysql.err import OperationalError
 from google.cloud import storage
@@ -30,6 +31,14 @@ mysql_config = {
   'autocommit': True
 }
 
+mysql_config_local = {
+  'user': DB_USER,
+  'password': DB_PASSWORD,
+  'db': DB_NAME,
+  'charset': 'utf8mb4',
+  'cursorclass': pymysql.cursors.DictCursor,
+  'autocommit': True
+}
 # Create SQL connection globally to enable reuse
 # PyMySQL does not include support for connection pooling
 mysql_conn = None
@@ -60,11 +69,11 @@ def faceMatchID(id):
     # which helps keep your GCF instances under SQL connection limits.
     if not mysql_conn:
         try:
-            mysql_conn = pymysql.connect(**mysql_config)
-        except OperationalError:
-            # If production settings fail, use local development ones
             mysql_config['unix_socket'] = f'/cloudsql/{CONNECTION_NAME}'
             mysql_conn = pymysql.connect(**mysql_config)
+        except OperationalError:
+            # If production settings fail, use local development ones                        
+            mysql_conn = pymysql.connect(**mysql_config_local)            
 
     # Remember to close SQL resources declared while running this function.
     # Keep any declared in global scope (e.g. mysql_conn) for later reuse.
@@ -123,10 +132,10 @@ def faceMatchID(id):
                 face_photo = face_recognition.load_image_file(jpg.name)
             face_photo_encoding_list = face_recognition.face_encodings(face_photo)
             if len(face_photo_encoding_list) > 1:
-                return make_response(jsonify({'success':False,'error': 'More than one face found in photo'}),400)    
+                return make_response(jsonify({'success':False,'msg': 'More than one face found in photo'}),200)    
             face_photo_encoding = face_photo_encoding_list[0]
         except:
-            return make_response(jsonify({'success':False,'error': 'No face found in photo'}),400)
+            return make_response(jsonify({'success':False,'msg': 'No face found in photo'}),200)
         
         try:
             with tempfile.NamedTemporaryFile(mode="wb") as jpg:
@@ -134,10 +143,10 @@ def faceMatchID(id):
                 id_face_photo = face_recognition.load_image_file(jpg.name)
             id_face_photo_encoding_list = face_recognition.face_encodings(id_face_photo)
             if len(id_face_photo_encoding_list) > 1:
-                return make_response(jsonify({'success':False,'error': 'More than one face found in id photo'}),400)                
+                return make_response(jsonify({'success':False,'msg': 'More than one face found in id photo'}),200)                
             id_face_photo_encoding = id_face_photo_encoding_list[0]
         except:
-            return make_response(jsonify({'success':False,'error': 'No face found in id photo'}),400)            
+            return make_response(jsonify({'success':False,'msg': 'No face found in id photo'}),200)            
         dist = numpy.linalg.norm(face_photo_encoding-id_face_photo_encoding)
         dist = 1-dist
         if dist>.50:
@@ -170,7 +179,7 @@ def faceMatchID(id):
                 try:
                     cursor.execute(sql,{'user_id':id,'model_path':new_path})                         
                 except Exception as e:
-                    return make_response(jsonify({'success': True,'msg':'Validated but error at save model: {}'.format(e)}), 500)
+                    return make_response(jsonify({'success': True,'msg':'Validated but error at save model: {}'.format(e)}), 200)
                 finally:
                     cursor.close()
             return make_response(jsonify({'success': True,'msg':'ID and photo match perfectly, model created'}), 200)
@@ -212,7 +221,7 @@ def validateModel(id):
             cursor.execute(sql)
             results = cursor.fetchone()        
         except Exception as e:
-            return make_response(jsonify({'success': False,'msg':'{}'.format(e)}), 500)
+            return make_response(jsonify({'success': False,'msg':'{}'.format(e)}), 200)
         finally:
             cursor.close()
     if results is None:        
