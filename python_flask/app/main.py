@@ -123,10 +123,10 @@ def faceMatchID(id):
                 face_photo = face_recognition.load_image_file(jpg.name)
             face_photo_encoding_list = face_recognition.face_encodings(face_photo)
             if len(face_photo_encoding_list) > 1:
-                return make_response(jsonify({'success':False,'error': 'More than one face found in photo'}),400)    
+                return make_response(jsonify({'success':False,'msg': 'More than one face found in photo'}),400)    
             face_photo_encoding = face_photo_encoding_list[0]
         except:
-            return make_response(jsonify({'success':False,'error': 'No face found in photo'}),400)
+            return make_response(jsonify({'success':False,'msg': 'No face found in photo'}),400)
         
         try:
             with tempfile.NamedTemporaryFile(mode="wb") as jpg:
@@ -134,10 +134,10 @@ def faceMatchID(id):
                 id_face_photo = face_recognition.load_image_file(jpg.name)
             id_face_photo_encoding_list = face_recognition.face_encodings(id_face_photo)
             if len(id_face_photo_encoding_list) > 1:
-                return make_response(jsonify({'success':False,'error': 'More than one face found in id photo'}),400)                
+                return make_response(jsonify({'success':False,'msg': 'More than one face found in id photo'}),400)                
             id_face_photo_encoding = id_face_photo_encoding_list[0]
         except:
-            return make_response(jsonify({'success':False,'error': 'No face found in id photo'}),400)            
+            return make_response(jsonify({'success':False,'msg': 'No face found in id photo'}),400)            
         dist = numpy.linalg.norm(face_photo_encoding-id_face_photo_encoding)
         dist = 1-dist
         if dist>.50:
