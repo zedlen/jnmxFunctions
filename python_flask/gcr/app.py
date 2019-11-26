@@ -4,6 +4,7 @@ import os
 import pymysql
 from pymysql.err import OperationalError
 from google.cloud import storage
+import google.oauth2.service_account as service_account
 import tempfile
 import numpy
 import face_recognition
@@ -12,6 +13,13 @@ import hashlib
 from PIL import ImageFile
 ImageFile.LOAD_TRUNCATED_IMAGES = True
 app = Flask(__name__)
+
+has_google = os.getenv('GOOGLE_APPLICATION_CREDENTIALS', False)
+
+if has_google is False:
+    GS_CREDENTIALS = service_account.Credentials.from_service_account_file(
+    "JurisnovaMX-81533c07499d.json"
+)
 
 CONNECTION_NAME = getenv(
     'INSTANCE_CONNECTION_NAME',
